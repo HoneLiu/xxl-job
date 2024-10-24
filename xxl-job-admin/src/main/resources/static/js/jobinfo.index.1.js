@@ -129,11 +129,11 @@ $(function() {
 
                                 // code url
                                 var codeBtn = "";
-                                if ('BEAN' != row.glueType) {
-                                    var codeUrl = base_url +'/jobcode?jobId='+ row.id;
-                                    codeBtn = '<li><a href="'+ codeUrl +'" target="_blank" >GLUE IDE</a></li>\n';
-                                    codeBtn += '<li class="divider"></li>\n';
-                                }
+                                // if ('BEAN' != row.glueType) {
+                                //     var codeUrl = base_url +'/jobcode?jobId='+ row.id;
+                                //     codeBtn = '<li><a href="'+ codeUrl +'" target="_blank" >GLUE IDE</a></li>\n';
+                                //     codeBtn += '<li class="divider"></li>\n';
+                                // }
 
                                 // data
                                 tableData['key'+row.id] = row;

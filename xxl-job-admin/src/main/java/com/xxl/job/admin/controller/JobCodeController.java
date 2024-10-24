@@ -56,41 +56,42 @@ public class JobCodeController {
 	@RequestMapping("/save")
 	@ResponseBody
 	public ReturnT<String> save(Model model, int id, String glueSource, String glueRemark) {
+		throw  new UnsupportedOperationException();
 		// valid
-		if (glueRemark==null) {
-			return new ReturnT<String>(500, (I18nUtil.getString("system_please_input") + I18nUtil.getString("jobinfo_glue_remark")) );
-		}
-		if (glueRemark.length()<4 || glueRemark.length()>100) {
-			return new ReturnT<String>(500, I18nUtil.getString("jobinfo_glue_remark_limit"));
-		}
-		XxlJobInfo exists_jobInfo = xxlJobInfoDao.loadById(id);
-		if (exists_jobInfo == null) {
-			return new ReturnT<String>(500, I18nUtil.getString("jobinfo_glue_jobid_unvalid"));
-		}
-		
-		// update new code
-		exists_jobInfo.setGlueSource(glueSource);
-		exists_jobInfo.setGlueRemark(glueRemark);
-		exists_jobInfo.setGlueUpdatetime(new Date());
+//		if (glueRemark==null) {
+//			return new ReturnT<String>(500, (I18nUtil.getString("system_please_input") + I18nUtil.getString("jobinfo_glue_remark")) );
+//		}
+//		if (glueRemark.length()<4 || glueRemark.length()>100) {
+//			return new ReturnT<String>(500, I18nUtil.getString("jobinfo_glue_remark_limit"));
+//		}
+//		XxlJobInfo exists_jobInfo = xxlJobInfoDao.loadById(id);
+//		if (exists_jobInfo == null) {
+//			return new ReturnT<String>(500, I18nUtil.getString("jobinfo_glue_jobid_unvalid"));
+//		}
+//
+//		// update new code
+//		exists_jobInfo.setGlueSource(glueSource);
+//		exists_jobInfo.setGlueRemark(glueRemark);
+//		exists_jobInfo.setGlueUpdatetime(new Date());
+//
+//		exists_jobInfo.setUpdateTime(new Date());
+//		xxlJobInfoDao.update(exists_jobInfo);
+//
+//		// log old code
+//		XxlJobLogGlue xxlJobLogGlue = new XxlJobLogGlue();
+//		xxlJobLogGlue.setJobId(exists_jobInfo.getId());
+//		xxlJobLogGlue.setGlueType(exists_jobInfo.getGlueType());
+//		xxlJobLogGlue.setGlueSource(glueSource);
+//		xxlJobLogGlue.setGlueRemark(glueRemark);
+//
+//		xxlJobLogGlue.setAddTime(new Date());
+//		xxlJobLogGlue.setUpdateTime(new Date());
+//		xxlJobLogGlueDao.save(xxlJobLogGlue);
+//
+//		// remove code backup more than 30
+//		xxlJobLogGlueDao.removeOld(exists_jobInfo.getId(), 30);
 
-		exists_jobInfo.setUpdateTime(new Date());
-		xxlJobInfoDao.update(exists_jobInfo);
-
-		// log old code
-		XxlJobLogGlue xxlJobLogGlue = new XxlJobLogGlue();
-		xxlJobLogGlue.setJobId(exists_jobInfo.getId());
-		xxlJobLogGlue.setGlueType(exists_jobInfo.getGlueType());
-		xxlJobLogGlue.setGlueSource(glueSource);
-		xxlJobLogGlue.setGlueRemark(glueRemark);
-
-		xxlJobLogGlue.setAddTime(new Date());
-		xxlJobLogGlue.setUpdateTime(new Date());
-		xxlJobLogGlueDao.save(xxlJobLogGlue);
-
-		// remove code backup more than 30
-		xxlJobLogGlueDao.removeOld(exists_jobInfo.getId(), 30);
-
-		return ReturnT.SUCCESS;
+		// return ReturnT.SUCCESS;
 	}
 	
 }

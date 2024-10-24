@@ -171,11 +171,12 @@
                     <div class="form-group">
                         <label for="firstname" class="col-sm-2 control-label">${I18n.jobinfo_field_gluetype}<font color="red">*</font></label>
                         <div class="col-sm-4">
-                            <select class="form-control glueType" name="glueType" >
+                            <select class="form-control glueType" name="glueType" style="pointer-events: none;background-color:#eee;" >
                                 <#list GlueTypeEnum as item>
-                                    <option value="${item}" >${item.desc}</option>
+                                    <option value="${item}" <#if item == "BEAN">selected</#if> >${item.desc}</option>
                                 </#list>
                             </select>
+<#--                            <input type="text" class="form-control" name="glueType" value="BEAN"  READONLY/>-->
                         </div>
                         <label for="firstname" class="col-sm-2 control-label">JobHandler<font color="red">*</font></label>
                         <div class="col-sm-4"><input type="text" class="form-control" name="executorHandler" placeholder="${I18n.system_please_input}JobHandler" maxlength="100" ></div>
